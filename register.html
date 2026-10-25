@@ -24,3 +24,139 @@
             </nav>
         </div>
     </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <section class="form-intro">
+            <h2>Event Registration Form</h2>
+            <p>Please fill out the form below to reserve your entry ticket for any club event. All fields marked with (*) are required.</p>
+        </section>
+
+        <!-- Registration Form -->
+        <section class="form-container">
+            <form id="registrationForm">
+
+                <!-- Fieldset 1: Personal Information -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+
+                    <div class="form-field">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required minlength="3" placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="studentEmail">University Email *</label>
+                        <input type="email" id="studentEmail" name="studentEmail" required placeholder="name@student.university.edu">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="phoneNumber">Phone Number (11 Digits) *</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{11}" placeholder="e.g. 03001234567">
+                    </div>
+                </fieldset>
+
+                <!-- Fieldset 2: Event Choice & Attendees -->
+                <fieldset>
+                    <legend>Event Selection</legend>
+
+                    <div class="form-field">
+                        <label for="eventSelect">Select an Event *</label>
+                        <select id="eventSelect" name="eventSelect" required>
+                            <option value="">-- Choose an Event --</option>
+                            <option value="Annual Campus Gala & Youth Festival">Annual Campus Gala &amp; Youth Festival 2026</option>
+                            <option value="Inter-Department Sports Olympiad">Inter-Department Sports Olympiad 2026</option>
+                            <option value="Career Fair & Corporate Networking Night">Career Fair &amp; Corporate Networking Night</option>
+                            <option value="Event Planning & Leadership Workshop">Event Planning &amp; Leadership Workshop</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="ticketCount">Number of Passes (Max 5)</label>
+                        <input type="number" id="ticketCount" name="ticketCount" min="1" max="5" value="1">
+                    </div>
+                </fieldset>
+
+                <!-- Fieldset 3: Referral Radio Buttons -->
+                <fieldset>
+                    <legend>How Did You Hear About Us? *</legend>
+                    <div class="radio-options">
+                        <label for="referralPoster">
+                            <input type="radio" id="referralPoster" name="referral" value="Campus Posters" required>
+                            Campus Posters
+                        </label>
+
+                        <label for="referralSocial">
+                            <input type="radio" id="referralSocial" name="referral" value="Social Media">
+                            Social Media
+                        </label>
+
+                        <label for="referralFriend">
+                            <input type="radio" id="referralFriend" name="referral" value="Friend or Classmate">
+                            Friend or Classmate
+                        </label>
+
+                        <label for="referralFaculty">
+                            <input type="radio" id="referralFaculty" name="referral" value="Faculty Member">
+                            Faculty Member
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="button">Submit Registration</button>
+                    <button type="reset" class="button button-outline">Reset Form</button>
+                </div>
+
+            </form>
+
+            <!-- Success Confirmation Message -->
+            <div id="confirmationMessage" class="confirmation-box"></div>
+        </section>
+
+        <!-- Saved Registrations Section (Loaded from localStorage) -->
+        <section class="saved-registrations-section">
+            <div class="saved-header">
+                <h2>Saved Registrations (from Browser Storage)</h2>
+                <button id="clearAllBtn" type="button" class="button button-danger">Clear All Registrations</button>
+            </div>
+
+            <p>Below is the list of all registrations currently saved in your browser's <code>localStorage</code>:</p>
+
+            <div class="table-wrapper">
+                <table id="registrationsTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Event</th>
+                            <th>Passes</th>
+                            <th>Referral Source</th>
+                        </tr>
+                    </thead>
+                    <tbody id="registrationsList">
+                        <!-- Rows injected dynamically via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="noDataText" class="empty-message">No registrations saved yet.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2026 Pulse Event Management Club. All rights reserved.</p>
+        <p>Built with Semantic HTML5 and CSS3 for CIT331 Web Technologies.</p>
+    </footer>
+
+    <!-- Short plain JavaScript for form and localStorage -->
+    <script src="js/register.js"></script>
+
+</body>
+</html>
